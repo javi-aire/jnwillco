@@ -67,5 +67,6 @@ export default css`
     margin: 0;
     font-family: 'Noto Serif', serif;
     font-size: 14px;
-
+    letter-spacing: 1.25px;
+	}
 `

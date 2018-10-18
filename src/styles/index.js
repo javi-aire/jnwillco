@@ -10,20 +10,9 @@ import { css } from 'styled-components';
  */
 export function mobile(...args) {
   return css`
-    ${props => {
-      if (props.theme.context.desktop) {
-        return '';
-      }
-      if (props.theme.context.mobile) {
-        return css(...args);
-      }
-      return css`
-        @media (max-width: ${props =>
-            props.theme.breakpoints[props.theme.desktopBreakpoint] - 1}px) {
-          ${css(...args)};
-        }
-      `;
-    }};
+    @media (max-width: ${props => props.theme.breakpoints.large - 1}px) {
+      ${css(...args)};
+    }
   `;
 }
 
@@ -34,19 +23,8 @@ export function mobile(...args) {
  */
 export function desktop(...args) {
   return css`
-    ${props => {
-      if (props.theme.context.mobile) {
-        return '';
-      }
-      if (props.theme.context.desktop) {
-        return css(...args);
-      }
-      return css`
-        @media (min-width: ${props =>
-            props.theme.breakpoints[props.theme.desktopBreakpoint]}px) {
-          ${css(...args)};
-        }
-      `;
-    }};
+    @media (min-width: ${props => props.theme.breakpoints.large - 1}px) {
+      ${css(...args)};
+    }
   `;
 }
